@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Import Data</h3>
+<p>importing to database</p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="importData">
+    <p>Please select format of file.</p>
+    <select name="file-format" class="form-control my-3">
+        <option selected>Choose format...</option>
+        <option>CSV</option>
+        <option>JSON</option>
+      </select>
+    <button class="btn btn-primary" type="submit">Import</button>
+  </form>
+<a href="{% url 'home' %}">Return Home View</a>
+  {% endblock %} 
